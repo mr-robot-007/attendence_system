@@ -1,0 +1,26 @@
+{% load static %}
+
+<nav class="navbar">
+  <!-- <img src="{% static 'images/logo.png' %}" height="50px" width="250px"> -->
+
+  <div class="logo" onclick="document.location='/'">
+    Brand
+  </div>
+  <input type="checkbox" id="click" />
+  <label for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
+  {%if request.user.is_authenticated%}
+
+  <ul>
+    <li><span class="active">Hello,{{ request.user.faculty }} </span></li>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'account' %}">Account</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+  {%else%}
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+  </ul>
+  {%endif%}
+</nav>

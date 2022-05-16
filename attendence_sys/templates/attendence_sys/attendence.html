@@ -1,0 +1,81 @@
+{% extends 'attendence_sys/main.html' %} {% load static %} {% block content %}
+{% for message in messages %} {% if message.tags == 'error' %}
+<div class="alert alert-danger">{{ message }}</div>
+{% else %}
+<div class="alert alert-success">{{ message }}</div>
+{% endif %} {% endfor %} {% if ta == False %}
+
+<div class="title-sa">Search Attendence</div>
+
+<form method="get">
+  <div class="form-group">{{myFilter.form.as_p}}</div>
+  <div class="button">
+    <input type="submit" value="Search" />
+  </div>
+  <br />
+
+  <div class="row">
+    <table class="table">
+      <thead class="thead-light">
+        <tr id="header">
+          <th>Student ID</th>
+          <th>Branch</th>
+          <th>Year</th>
+          <th>Section</th>
+          <th>Date</th>
+          <th>Period</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      {% for attendence in attendences %}
+
+      <tr>
+        <th data-title="Student_ID">{{ attendence.Student_ID }}</th>
+        <td data-title="Branch">{{ attendence.branch }}</td>
+        <td data-title="Year">{{ attendence.year }}</td>
+        <td data-title="Section">{{ attendence.section }}</td>
+        <td data-title="Date">{{ attendence.date }}</td>
+        <td data-title="Period">{{ attendence.period }}</td>
+        <td data-title="Status">{{ attendence.status }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% else %}
+</form>
+<div class="title-sa">Present Period Attendence</div>
+<form style="width:100%;">
+
+  <br />
+
+  <div class="row">
+    <table class="table">
+      <thead class="thead-light">
+        <tr id="header">
+          <th>Student ID</th>
+          <th>Branch</th>
+          <th>Year</th>
+          <th>Section</th>
+          <th>Date</th>
+          <th>Period</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      {% for attendence in attendences %}
+
+      <tr>
+        <th data-title="Student_ID">{{ attendence.Student_ID }}</th>
+        <td data-title="Branch">{{ attendence.branch }}</td>
+        <td data-title="Year">{{ attendence.year }}</td>
+        <td data-title="Section">{{ attendence.section }}</td>
+        <td data-title="Date">{{ attendence.date }}</td>
+        <td data-title="Period">{{ attendence.period }}</td>
+        <td data-title="Status">{{ attendence.status }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %} {% endblock %}
+</form>

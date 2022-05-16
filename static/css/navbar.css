@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+nav{
+  height: 80px;
+  background:#ccccff ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px 0px 100px;
+  position: fixed;
+  z-index: 1000 !important;
+}
+nav .logo{
+  font-size: 33px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+nav ul{
+  z-index: 1;
+  display: flex;
+  list-style: none;
+  padding-top: 15px;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li span{
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px  10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+
+}
+nav ul li a{
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 8px  10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+nav ul li a:hover {
+  color: white;
+  text-decoration: none;
+  background: #9966ff ;
+}
+
+nav .menu-btn i {
+  color: white;
+  font-size: 22px;
+  cursor: pointer ;
+  display: none;
+
+}
+#click{
+  visibility: hidden;
+}
+
+@media(max-width: 940px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left:-100%;
+    background-color: #b3b3ff;
+    height:100vh;
+    width: 100%;
+    display:block;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0%;
+  }
+  #click:checked ~ label i:before{
+content: "\f00d";
+  }
+  nav ul li {
+    margin: 40px 0px;
+  }
+  nav ul li a {
+    font-size: 20px;
+    display:block;
+    
+  }
+  nav ul li a:hover {
+    color:#884dff;
+    background: none;
+    
+  }
+  
+}
