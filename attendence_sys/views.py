@@ -1,8 +1,8 @@
+from glob import glob
+from unittest import result
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, StreamingHttpResponse
 
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -10,11 +10,11 @@ from .forms import *
 from .models import Student, Attendence
 from .filters import AttendenceFilter
 
-from django.views.decorators import gzip
-
+from .encoder import Encoder
 from .recognizer import Recognizer
 from datetime import date
-
+import time
+from threading import Thread
 @login_required(login_url = 'login')
 def home(request):
     studentForm = CreateStudentForm()
@@ -39,9 +39,20 @@ def home(request):
 
     context = {'studentForm':studentForm}
     # print(studentForm)
+    time.sleep(1)
     return render(request, 'attendence_sys/home.html', context)
 
+known_face_encodings =[]
+known_face_names = []
 
+def call_encoder():
+    global known_face_encodings,known_face_names
+    a,b = Encoder()
+    known_face_encodings=a
+    known_face_names=b
+
+
+    
 def loginPage(request):
     if request.method == 'POST':
     
@@ -56,6 +67,9 @@ def loginPage(request):
             messages.info(request, 'Username or Password is incorrect')
 
     context = {}
+    global known_face_encodings,known_face_names
+    Thread(target=call_encoder).start()
+    time.sleep(1)
     return render(request, 'attendence_sys/login.html', context)
 
 @login_required(login_url = 'login')
@@ -88,6 +102,8 @@ def updateStudent(request):
             if updateStudentForm.is_valid():
                 updateStudentForm.save()
                 messages.success(request, 'Updation Success')
+                Thread(target=call_encoder).start()
+                time.sleep(1)
                 return redirect('home')
         except:
             messages.error(request, 'Updation Unsucessfull')
@@ -110,7 +126,9 @@ def takeAttendence(request):
             return redirect('home')
         else:
             students = Student.objects.filter(branch = details['branch'], year = details['year'], section = details['section'])
-            names = Recognizer(details)
+            global known_face_encodings,known_face_names
+            time.sleep(1)
+            names = Recognizer(known_face_encodings,known_face_names)
             for student in students:
                 if str(student.registration_id) in names:
                     attendence = Attendence(Faculty_Name = request.user.faculty, 
@@ -137,12 +155,13 @@ def takeAttendence(request):
     return render(request, 'attendence_sys/home.html', context)
 
 def searchAttendence(request):
-    # print(request)
+    print(request)
     attendences = Attendence.objects.all()
+    print(attendences)
     myFilter = AttendenceFilter(request.GET, queryset=attendences)
     attendences = myFilter.qs
-
     context = {'myFilter':myFilter, 'attendences': attendences, 'ta':False}
+    print(attendences)
     return render(request, 'attendence_sys/attendence.html', context)
 
 
@@ -153,32 +172,3 @@ def facultyProfile(request):
     return render(request, 'attendence_sys/facultyForm.html', context)
 
 
-
-class VideoCamera(object):
-    def __init__(self):
-        self.video = cv2.VideoCapture(0)
-    def __del__(self):
-        self.video.release()
-
-    def get_frame(self):
-        ret,image = self.video.read()
-        ret,jpeg = cv2.imencode('.jpg',image)
-        return jpeg.tobytes()
-
-
-def gen(camera):
-    while True:
-        frame = camera.get_frame()
-        yield(b'--frame\r\n'
-        b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-
-@gzip.gzip_page
-def videoFeed(request):
-    try:
-        return StreamingHttpResponse(gen(VideoCamera()),content_type="multipart/x-mixed-replace;boundary=frame")
-    except:
-        print("aborted")
-
-def getVideo(request):
-    return render(request, 'attendence_sys/videoFeed.html')
