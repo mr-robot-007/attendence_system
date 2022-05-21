@@ -1,8 +1,10 @@
 from glob import glob
 from unittest import result
 from django.shortcuts import render, redirect
+from django.http import HttpResponse, StreamingHttpResponse
 
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -10,11 +12,18 @@ from .forms import *
 from .models import Student, Attendence
 from .filters import AttendenceFilter
 
+# from django.views.decorators import gzip
 from .encoder import Encoder
 from .recognizer import Recognizer
 from datetime import date
 import time
 from threading import Thread
+
+import xlwt
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+
+
 @login_required(login_url = 'login')
 def home(request):
     studentForm = CreateStudentForm()
@@ -155,13 +164,15 @@ def takeAttendence(request):
     return render(request, 'attendence_sys/home.html', context)
 
 def searchAttendence(request):
-    print(request)
-    attendences = Attendence.objects.all()
-    print(attendences)
+    # print(request)
+    global attendences 
+    attendences= Attendence.objects.all()
+    # print(attendences)
     myFilter = AttendenceFilter(request.GET, queryset=attendences)
     attendences = myFilter.qs
     context = {'myFilter':myFilter, 'attendences': attendences, 'ta':False}
-    print(attendences)
+    # print("final data ",attendences)
+    # print(type(attendences))
     return render(request, 'attendence_sys/attendence.html', context)
 
 
@@ -171,4 +182,36 @@ def facultyProfile(request):
     context = {'form':form}
     return render(request, 'attendence_sys/facultyForm.html', context)
 
+
+def export_users_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="attendance.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Attendance Data') # this will make a sheet named Attendance Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Student_ID', 'branch', 'year', 'section','date','period','status']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    global attendences
+    rows = attendences.values_list('Student_ID', 'branch', 'year', 'section','date','period','status')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
 
