@@ -1,6 +1,5 @@
 import os
 import face_recognition
-import asyncio
 
 def Encoder():
     known_face_encodings = []

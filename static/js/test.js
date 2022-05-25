@@ -1,0 +1,1 @@
+document.getElementById("id_date").setAttribute("placeholder", "YYYY-MM-DD");

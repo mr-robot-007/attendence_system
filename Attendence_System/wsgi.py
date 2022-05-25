@@ -1,5 +1,5 @@
 """
-WSGI config for Attendence_System project.
+WSGI config for attendence_System project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

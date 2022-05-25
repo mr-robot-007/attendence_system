@@ -1,11 +1,10 @@
 import face_recognition
 import numpy as np
 import cv2
-import os
 
 
 def Recognizer(known_face_encodings,known_face_names):
-	video = cv2.VideoCapture(0)
+	video = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 	names = []
 	face_locations = []
 	face_encodings = []

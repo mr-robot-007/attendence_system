@@ -15,7 +15,7 @@ from .filters import AttendenceFilter
 # from django.views.decorators import gzip
 from .encoder import Encoder
 from .recognizer import Recognizer
-from datetime import date
+from datetime import date,datetime
 import time
 from threading import Thread
 
@@ -39,6 +39,8 @@ def home(request):
             stat = False
         if studentForm.is_valid() and (stat == False):
             studentForm.save()
+            Thread(target=call_encoder).start()
+            time.sleep(1)
             name = studentForm.cleaned_data.get('firstname') +" " +studentForm.cleaned_data.get('lastname')
             messages.success(request, 'Student ' + name + ' was successfully added.')
             return redirect('home')
@@ -48,7 +50,6 @@ def home(request):
 
     context = {'studentForm':studentForm}
     # print(studentForm)
-    time.sleep(1)
     return render(request, 'attendence_sys/home.html', context)
 
 known_face_encodings =[]
@@ -56,12 +57,11 @@ known_face_names = []
 
 def call_encoder():
     global known_face_encodings,known_face_names
-    a,b = Encoder()
-    known_face_encodings=a
-    known_face_names=b
+    encodings,name= Encoder()
+    known_face_encodings,known_face_names=encodings,name
+    print(known_face_names)
+    return
 
-
-    
 def loginPage(request):
     if request.method == 'POST':
     
@@ -77,8 +77,8 @@ def loginPage(request):
 
     context = {}
     global known_face_encodings,known_face_names
-    Thread(target=call_encoder).start()
-    time.sleep(1)
+    if(known_face_encodings==[]):
+        Thread(target=call_encoder).start()
     return render(request, 'attendence_sys/login.html', context)
 
 @login_required(login_url = 'login')
@@ -136,7 +136,7 @@ def takeAttendence(request):
         else:
             students = Student.objects.filter(branch = details['branch'], year = details['year'], section = details['section'])
             global known_face_encodings,known_face_names
-            time.sleep(1)
+            time.sleep(2)
             names = Recognizer(known_face_encodings,known_face_names)
             for student in students:
                 if str(student.registration_id) in names:
@@ -158,7 +158,7 @@ def takeAttendence(request):
                     attendence.save()
             attendences = Attendence.objects.filter(date = str(date.today()),branch = details['branch'], year = details['year'], section = details['section'],period = details['period'])
             context = {"attendences":attendences, "ta":True}
-            messages.success(request, "Attendence taking Success")
+            messages.success(request, "attendence taking Success")
             return render(request, 'attendence_sys/attendence.html', context)        
     context = {}
     return render(request, 'attendence_sys/home.html', context)
@@ -185,10 +185,10 @@ def facultyProfile(request):
 
 def export_users_xls(request):
     response = HttpResponse(content_type='application/ms-excel')
-    response['Content-Disposition'] = 'attachment; filename="attendance.xls"'
+    response['Content-Disposition'] = 'attachment; filename="attendence.xls"'
 
     wb = xlwt.Workbook(encoding='utf-8')
-    ws = wb.add_sheet('Attendance Data') # this will make a sheet named Attendance Data
+    ws = wb.add_sheet('attendence Data') # this will make a sheet named attendence Data
 
     # Sheet header, first row
     row_num = 0
