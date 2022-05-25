@@ -1,0 +1,51 @@
+.container .row .col-md-6 .card-body {
+    border-radius: 15px;
+}
+
+.form-group select,
+.form-group input {
+    border: 1px solid #e6e6ff;
+    border-radius: 10px;
+}
+
+.card-body form .form-group select:focus,
+.form-group input:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    border: 2px solid #967bc7 !important;
+}
+
+form .button {
+    height: 35px;
+    margin: 15px 0px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: 800;
+    color: #9966ff;
+    padding-top: -20px;
+}
+
+select option:checked {
+    background: #ff9500 -webkit-linear-gradient(bottom, #ff9500 0%, #ff9500 100%);
+}
+
+select option:hover {
+    background: red -webkit-linear-gradient(bottom, red 0%, #ff9500 100%);
+    color: #fff;
+}
+
+.card.card-body {
+    justify-content: center;
+    border-radius: 15px;
+}
+
+input #id_profile_pic {
+    height: 45px;
+}

@@ -21,7 +21,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="sel1">Select Branch:</label>
-                        <select name='branch' class="form-control" id="sel1">
+                        <select name='branch' class="form-control" id="sel1" size="1" onclick="select_option()">
                             <option value="CSE">CSE</option>
                             <option value="IT">IT</option>
                             <option value="ECE">ECE</option>
@@ -60,7 +60,10 @@
                             <option value="7">7</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-block btn-info">Take Attendence</button>
+                    <div class="button">
+                        <input type="submit" value="Take Attendence" />
+                        </a>
+                      </div>
                 </form>
             </div>
         </div>
@@ -121,7 +124,10 @@
                         </div>
                         <div class="col-md-3"></div>
                     </div>
-                    <button type="submit" class="btn btn-block btn-info">Submit</button>    
+                    <div class="button">
+                        <input type="submit" value="Submit" />
+                        </a>
+                      </div>   
                 </form>
             </div>
         </div>
@@ -150,15 +156,25 @@
                             <option value="CIVIL">CIVIL</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-block btn-info">Submit</button>
+                    <div class="button">
+                        <input type="submit" value="Submit" />
+                        </a>
+                      </div>
                 </form>
             </div>
         </div>
         <div class="col-md-6" style="margin-top: 20px;;">
             <div class="card card-body">
                 <center><h3>Search Attendence</h3></center>
-                    <a href="{% url 'searchattendence' %}" class="btn btn-block btn-info">Click Here</a>
+                    <form>
+                        <div class="button">
+                            <a href = "{% url 'searchattendence' %}">
+                            <input type="button" value ="Click Here"/>
+                            </a>
+                          </div>
+                    </form>
             </div>
+            
         </div>
     </div>
 </div>

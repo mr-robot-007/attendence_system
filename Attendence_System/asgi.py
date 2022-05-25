@@ -1,5 +1,5 @@
 """
-ASGI config for Attendence_System project.
+ASGI config for attendence_System project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

@@ -6,22 +6,23 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-weight: bold;
     font-size: 3em;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  span {
+}
+
+span {
     color: rgb(141, 14, 130);
-  }
-  
-  .login-box {
+}
+
+.login-box {
     width: 25em;
     height: 32em;
-    background: rgba(239, 218, 241, 0.438);
+    /* background: rgba(239, 218, 241, 0.438); */
+    background: white;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -29,37 +30,41 @@ body {
     box-sizing: border-box;
     padding: 3em 3em;
     border-radius: 10%;
-  }
-  
-  .login-image {
+}
+
+.login-image {
     width: 7em;
     height: 7em;
     border-radius: 50%;
     position: absolute;
     top: -3.7em;
     left: calc(50% - 3.7em);
-  }
-  
-  h3 {
+}
+
+h3 {
     margin: 0 auto;
     padding: 0.5em 0;
     text-align: center;
     font-size: 2.5rem;
-  }
-  
-  .login-box p {
+}
+
+.login-box h3 {
+    color: #9966ff;
+}
+
+.login-box p {
     margin: 0;
     padding: 1em 0;
     font-weight: bold;
-  }
-  
-  .login-box input {
+}
+
+.login-box input {
     width: 100%;
     margin-bottom: 2em;
-  }
-  
-  .login-box input[type="text"],
-  input[type="password"] {
+}
+
+.login-box input[type="text"],
+input[type="password"] {
     border: none;
     border-bottom: 1.2px solid rgb(141, 14, 130);
     background: transparent;
@@ -67,9 +72,9 @@ body {
     height: 2em;
     color: rgb(141, 14, 130);
     font-size: 16px;
-  }
-  
-  .login-box input[type="submit"] {
+}
+
+.login-box input[type="submit"] {
     border: none;
     outline: none;
     height: 2.5em;
@@ -77,11 +82,20 @@ body {
     color: white;
     font-size: 1em;
     border-radius: 1.5rem;
-  }
-  
-  .login-box input[type="submit"]:hover {
+}
+
+.login-box input[type="submit"]:hover {
     cursor: pointer;
     background: rgb(221, 75, 209);
     color: white;
-  }
-  
+}
+
+@media(max-width:524px) {
+    .login-box {
+        width: 17em;
+        height: 27em;
+    }
+    .login-box h3 {
+        margin: -15px;
+    }
+}
