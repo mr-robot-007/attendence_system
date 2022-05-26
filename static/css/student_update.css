@@ -1,33 +1,9 @@
 #row {
   margin-bottom: 250px;
 }
+
 .col-md-3{
   margin-bottom: 20px;
-}
-
-.col-md-6 form p select,
-.col-md-6 form p input {
-    border: 1px solid #e6e6ff;
-    border-radius: 10px;
-}
-
-
-
-.col-md-6 form p select:focus,
-.col-md-6 form p input:focus {
-    box-shadow: none;
-    border: none;
-}
-
-.col-md-6 form p select:focus,
-.col-md-6 form p input:focus {
-    border: 2px solid #967bc7 !important;
-}
-
-.profile-pic{
-  max-width: 200px;
-  max-height:200px;
-  border-radius: 50%;
 }
 
 @media(max-width:765px) {
@@ -35,3 +11,4 @@
     align-items: center;
   }
 }
+

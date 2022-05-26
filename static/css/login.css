@@ -21,7 +21,6 @@ span {
 .login-box {
     width: 25em;
     height: 32em;
-    /* background: rgba(239, 218, 241, 0.438); */
     background: white;
     top: 50%;
     left: 50%;
@@ -46,24 +45,21 @@ h3 {
     padding: 0.5em 0;
     text-align: center;
     font-size: 2.5rem;
-}
-
-.login-box h3 {
     color: #9966ff;
 }
 
-.login-box p {
+p {
     margin: 0;
     padding: 1em 0;
     font-weight: bold;
 }
 
-.login-box input {
+input {
     width: 100%;
     margin-bottom: 2em;
 }
 
-.login-box input[type="text"],
+input[type="text"],
 input[type="password"] {
     border: none;
     border-bottom: 1.2px solid rgb(141, 14, 130);
@@ -74,7 +70,7 @@ input[type="password"] {
     font-size: 16px;
 }
 
-.login-box input[type="submit"] {
+input[type="submit"] {
     border: none;
     outline: none;
     height: 2.5em;
@@ -84,7 +80,7 @@ input[type="password"] {
     border-radius: 1.5rem;
 }
 
-.login-box input[type="submit"]:hover {
+input[type="submit"]:hover {
     cursor: pointer;
     background: rgb(221, 75, 209);
     color: white;
@@ -95,7 +91,7 @@ input[type="password"] {
         width: 17em;
         height: 27em;
     }
-    .login-box h3 {
+    h3 {
         margin: -15px;
     }
 }

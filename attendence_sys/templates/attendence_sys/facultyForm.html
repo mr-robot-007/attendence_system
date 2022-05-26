@@ -1,8 +1,6 @@
 {%  extends 'attendence_sys/main.html' %}
 {% block content %}
 
-
-
 <br>
 <div class="row" id="row">
 	<div class="col-md-3">
@@ -14,13 +12,14 @@
 			</center>
 			<hr>
 			<img class="img-responsive profile-pic" src="{{request.user.faculty.profile_pic.url}}" >
-		
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="card card-body">
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
+				<div class="form-group">
+				</div>
 				{{form.as_p}}
 
 			<div class="button">
