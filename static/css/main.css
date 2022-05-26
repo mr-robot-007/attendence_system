@@ -23,11 +23,16 @@
   flex-basis: 49.5%;
 }
 
+h3{
+    color: #9966ff;
+}
+
 .form-group p label {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
+
 
 .form-group p input {
   height: 45px;

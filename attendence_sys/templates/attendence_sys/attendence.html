@@ -1,8 +1,16 @@
-{% extends 'attendence_sys/main.html' %} {% load static %} {% block content %} {% for message in messages %} {% if message.tags == 'error' %}
+{% extends 'attendence_sys/main.html' %}
+{% load static %} {% block content %} 
+{% for message in messages %} 
+{% if message.tags == 'error' %}
+
 <div class="alert alert-danger">{{ message }}</div>
+
 {% else %}
+
 <div class="alert alert-success">{{ message }}</div>
+
 {% endif %} {% endfor %} {% if ta == False %}
+
 <div class="card card-body">
     <center>
         <h3>Search Attendence</h3>
@@ -49,6 +57,7 @@
         {% else %}
     </form>
 </div>
+
 <div class="card card-body">
     <center>
         <h3>Present Period Attendence</h3>
