@@ -8,7 +8,7 @@ import cv2
 def Recognizer(known_face_encodings, known_face_names):
 
     # capture video via webcam at port 0
-    video = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    video = cv2.VideoCapture(0)
     names = []
     face_locations = []
     face_encodings = []

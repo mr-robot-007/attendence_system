@@ -10,7 +10,7 @@ def Encoder():
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     base_dir = os.getcwd()
-    image_dir = os.path.join(base_dir, "{}\{}\{}".format(
+    image_dir = os.path.join(base_dir, "{}/{}/{}".format(
         'static', 'images', 'Student_Images'))
 
     for root, dirs, files in os.walk(image_dir):
