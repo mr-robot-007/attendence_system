@@ -52,11 +52,17 @@ Navigate to Django admin page - http://127.0.0.1:8000/admin
 1. login using your credentials  
 2. Go to Facultys in ATTENDENCE_SYS
 3. Add Faculty 
-4. In User select the newly created User
+4. In User, select the newly created User
 5. Fill details and SAVE
 ```
 
 Now you can login with as faculty with the credentials of the newly created user 
+
+**Note***
+1. Upload only clear image (with clear background) of the student and image should should not contain more than 1 face.
+2. while adding or updating student details , make sure image files are in .png or .jpg format only
+3. while Searching attendence with Date - add date in [YYYY-MM-DD] format.
+4. While taking attendance - to save attendance or close camera window press 's' on the keyboard.
 
 
 
