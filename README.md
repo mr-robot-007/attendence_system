@@ -30,6 +30,8 @@ To run the web app on your local computer, install the required libraries(requir
 pip3 install -r requirements.txt
 ```
 
+**Note -  while installing requirements.txt it can 5-10 mins to install all packages**
+
 ### Testing Credentials 
 > username = tester | 
 > password = engageprogram
