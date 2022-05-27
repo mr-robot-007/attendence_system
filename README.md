@@ -6,13 +6,17 @@ The credentials for the Faculty are provided by the superuser who has access to 
 Django web framework was used for the development of the whole web app. OpenCv and face_recognition API's were used for the development of Face Recognizer. The Face Recognizer can detect multiple faces at a time and mark their attendance into Database (sqlite3)
 
 
-**Note: Python version 3.9 was used for this project. And the dlib package required for installation of face_recognition api is also uploaded.**
+**Note: Python version 3.9 was used for this project. And the dlib package(already included) required for installation of face_recognition api is also uploaded.**
 
 **Make sure python is installed and is added to PATH**
+
+Download from here - https://www.python.org/downloads/
 
 ![alt text](https://www.tutorialspoint.com/assets/questions/media/49353/install_Python2.jpg)
 
 **Visual Studio (Desktop Development with C++ ) must be installed**
+
+Download from here - https://visualstudio.microsoft.com/downloads/
 
 ![alt text](https://github.com/mr-robot-007/attendence_system/blob/master/static/readme_files/visualstudio.png)
 
@@ -27,9 +31,10 @@ pip3 install -r requirements.txt
 ```
 
 ### Testing Credentials 
-> username = tester
+> username = tester | 
 > password = engageprogram
 
+### Create New User
 To create your own credential for logging into the application run: 
 ```sh
 python manage.py createsuperuser
@@ -40,13 +45,16 @@ After running the above command and creating the credentials, you can use the sa
 python manage.py runserver
 ```
 
-**To create a faculty**
+**To create a faculty profile**
+
 Navigate to Django admin page - http://127.0.0.1:8000/admin 
+```sh
 1. login using your credentials  
 2. Go to Facultys in ATTENDENCE_SYS
 3. Add Faculty 
 4. In User select the newly created User
 5. Fill details and SAVE
+```
 
 Now you can login with as faculty with the credentials of the newly created user 
 
