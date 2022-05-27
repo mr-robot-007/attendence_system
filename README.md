@@ -15,6 +15,7 @@ Django web framework was used for the development of the whole web app. OpenCv a
 **Visual Studio (Desktop Development with C++ ) must be installed**
 
 ![alt text](https://github.com/mr-robot-007/attendence_system/blob/master/static/readme_files/visualstudio.png)
+
 To install dlib cmake must be installed
 ```sh
 pip install cmake
