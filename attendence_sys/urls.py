@@ -1,5 +1,6 @@
-from django.urls import path
+"""django urls are used to map http request to respecitve views"""
 
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -8,11 +9,8 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
     path('searchattendence/', views.searchAttendence, name='searchattendence'),
     path('account/', views.facultyProfile, name='account'),
-
     path('updateStudentRedirect/', views.updateStudentRedirect, name='updateStudentRedirect'),
     path('updateStudent/', views.updateStudent, name='updateStudent'),
     path('attendence/', views.takeAttendence, name='attendence'),
     path('export/excel', views.export_users_xls, name='export_excel'),
-    # path('video_feed/', views.videoFeed, name='video_feed'),
-    # path('videoFeed/', views.getVideo, name='videoFeed'),
 ]

@@ -1,6 +1,9 @@
 import os
 import face_recognition
 
+
+"""Encoder() - generates encoding for all images in 'static/images/Student_Images' .
+   It returns encodings with respective labels(names)"""
 def Encoder():
     known_face_encodings = []
     known_face_names = []

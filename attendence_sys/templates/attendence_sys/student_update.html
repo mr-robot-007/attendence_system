@@ -1,6 +1,7 @@
 {% extends 'attendence_sys/main.html' %}
 {% block content %}
 
+<br>
     <div class="row" id = "row">
         <div class="col-md-3">
             <div class="card card-body">
@@ -16,7 +17,7 @@
             <div class="card card-body">
             <form action="{% url 'updateStudent' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="form-group" style="visibility: hidden !important;margin-top: -40px;">
+                <div class="form-group" id = "reg_id">
                     <input type="text" class="form-control" value="{{ prev_reg_id }}" name="prev_reg_id">
                 </div>
                 {{ form.as_p }}

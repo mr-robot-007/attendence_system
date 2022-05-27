@@ -1,45 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/login.css' %}"
-    />
-  </head>
-  <body>
-    <div class="login-box">
-      <h3 id="form-title">LOGIN</h3>
-      <form method="POST" action="">
-        {% csrf_token %}
-        <p>Username</p>
-        <input
-          type="text"
-          name="username"
-          placeholder="Enter your username..."
-          class="form-control"
-        />
 
-        <p>Password</p>
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter your password..."
-          class="form-control"
-        />
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+</head>
 
-        <input class="btn login_btn" type="submit" value="Login" />
-        
+<body>
+  <div class="login-box">
+    <h3 id="form-title">LOGIN</h3>
+    <form method="POST" action="">
+      {% csrf_token %}
+      <p>Username</p>
+      <input type="text" name="username" placeholder="Enter your username..." class="form-control" />
 
-        
-      </form>
+      <p>Password</p>
+      <input type="password" name="password" placeholder="Enter your password..." class="form-control" />
 
-      {% for message in messages %}
-      <p id="messages">{{message}}</p>
-      {% endfor %}
-    </div>
-  </body>
+      <input class="btn login_btn" type="submit" value="Login" />
+    </form>
+
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+  </div>
+</body>
+
 </html>

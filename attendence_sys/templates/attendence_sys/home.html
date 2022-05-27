@@ -21,7 +21,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="sel1">Select Branch:</label>
-                        <select name='branch' class="form-control" id="sel1" size="1" onclick="select_option()">
+                        <select name='branch' class="form-control">
                             <option value="CSE">CSE</option>
                             <option value="IT">IT</option>
                             <option value="ECE">ECE</option>
@@ -62,8 +62,7 @@
                     </div>
                     <div class="button">
                         <input type="submit" value="Take Attendence" />
-                        </a>
-                      </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -126,8 +125,7 @@
                     </div>
                     <div class="button">
                         <input type="submit" value="Submit" />
-                        </a>
-                      </div>   
+                    </div>   
                 </form>
             </div>
         </div>
@@ -158,23 +156,21 @@
                     </div>
                     <div class="button">
                         <input type="submit" value="Submit" />
-                        </a>
-                      </div>
+                    </div>
                 </form>
             </div>
         </div>
         <div class="col-md-6" style="margin-top: 20px;;">
             <div class="card card-body">
-                <center><h3>Search Attendence</h3></center>
-                    <form>
-                        <div class="button">
-                            <a href = "{% url 'searchattendence' %}">
+            <center><h3>Search Attendence</h3></center>
+                <form>
+                    <div class="button">
+                        <a href = "{% url 'searchattendence' %}">
                             <input type="button" value ="Click Here"/>
-                            </a>
-                          </div>
-                    </form>
+                        </a>
+                    </div>
+                </form>
             </div>
-            
         </div>
     </div>
 </div>
