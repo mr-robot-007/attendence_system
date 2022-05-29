@@ -5,6 +5,10 @@ In this Attendance System the attendance for students is marked using Face recog
 The credentials for the Faculty are provided by the superuser who has access to the whole database. Only the superuser can update the attendance of a student.
 Django web framework was used for the development of the whole web app. OpenCv and face_recognition API's were used for the development of Face Recognizer. The Face Recognizer can detect multiple faces at a time and mark their attendance into Database (sqlite3)
 
+## Architechture
+![alt text](https://github.com/mr-robot-007/attendence_system/blob/master/static/readme_files/architechture.png)
+
+Demo Video - https://youtu.be/Re4r04-tGXM
 
 **Note: Python version 3.9 was used for this project. And the dlib package(already included) required for installation of face_recognition api is also uploaded.**
 
