@@ -14,7 +14,7 @@ Download from here - https://www.python.org/downloads/
 
 ![alt text](https://www.tutorialspoint.com/assets/questions/media/49353/install_Python2.jpg)
 
-**Visual Studio (Desktop Development with C++ ) must be installed**
+**Visual Studio (Desktop Development with C++ ) must be installed for windows**
 
 Download from here - https://visualstudio.microsoft.com/downloads/
 
@@ -62,9 +62,11 @@ Now you can login with as faculty with the credentials of the newly created user
 
 **Note***
 1. Upload only clear image (with clear background) of the student and image should should not contain more than 1 face.
-2. while adding or updating student details , make sure image files are in .png or .jpg format only
-3. while Searching attendence with Date - add date in [YYYY-MM-DD] format.
-4. While taking attendance - to save attendance or close camera window press 's' on the keyboard.
+2. Image should be in .png format and less than 1MB in size.
+3. To convert images from jpg/jpeg to png you can use - https://cloudconvert.com/
+4. while adding or updating student details , make sure image files are in .png or .jpg format only
+5. while Searching attendence with Date - add date in [YYYY-MM-DD] format.
+6. While taking attendance - to save attendance or close camera window press 's' on the keyboard.
 
 
 

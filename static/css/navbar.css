@@ -71,7 +71,7 @@ nav .menu-btn i {
 }
 
 #click {
-    visibility: hidden;
+    visibility:visible;
 }
 
 @media(max-width: 940px) {
