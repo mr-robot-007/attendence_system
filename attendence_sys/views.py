@@ -21,7 +21,7 @@ import time
 from threading import Thread
 
 import xlwt
-
+import os
 
 """ global variables """
 known_face_encodings =[]
@@ -47,7 +47,7 @@ def home(request):
             studentForm.save()  #save new student data to database
             
             Thread(target=call_encoder).start()  #generate encodings agains with new updated data
-            time.sleep(0.5)
+            time.sleep(1)
             name = studentForm.cleaned_data.get('firstname') +" " +studentForm.cleaned_data.get('lastname')
             messages.success(request, 'Student ' + name + ' was successfully added.')
             return redirect('home')
@@ -69,6 +69,7 @@ def call_encoder():
     global known_face_encodings,known_face_names
     encodings,name= Encoder()
     known_face_encodings,known_face_names=encodings,name
+    print(known_face_names)
     return
 
 
@@ -145,11 +146,28 @@ def updateStudent(request):
         try:
             student = Student.objects.get(registration_id = request.POST['prev_reg_id'])
             updateStudentForm = CreateStudentForm(data = request.POST, files=request.FILES, instance = student)
+            
+            details = {
+            'id':request.POST['prev_reg_id'],
+            'branch':request.POST['branch'],
+            'year': request.POST['year'],
+            'section':request.POST['section'],
+            }
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            base_dir = os.getcwd()
+            image_dir = os.path.join(base_dir, "{}/{}/{}/{}/{}/{}/{}".format(
+                'static', 'images', 'Student_Images',details['branch'],details['year'],details['section'],details['id']))
+            image_dir = image_dir +'.png'
+            
             if updateStudentForm.is_valid():
+                #delete old file
+                if(os.path.isfile(image_dir)):
+                    os.remove(image_dir)
+                    
                 updateStudentForm.save()
                 messages.success(request, 'Updation Success')
                 Thread(target=call_encoder).start()
-                time.sleep(0.5)
+                time.sleep(1)
                 return redirect('home')
         except:
             messages.error(request, 'Updation Unsucessfull')

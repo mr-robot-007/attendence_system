@@ -26,6 +26,10 @@ body {
   flex-basis: 49.5%;
 }
 
+input[type="checkbox"],label[for="profile_pic-clear_id"] {
+  visibility: hidden !important;
+}
+
 h3{
     color: #9966ff;
 }
