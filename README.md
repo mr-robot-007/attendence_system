@@ -65,6 +65,7 @@ Navigate to Django admin page - http://127.0.0.1:8000/admin
 Now you can login with as faculty with the credentials of the newly created user 
 
 **Note***
+```sh
 1. Upload only clear image (with clear background) of the student and image should should not contain more than 1 face.
 2. Image should be in .png format and less than 1MB in size.
 3. To convert images from jpg/jpeg to png you can use - https://cloudconvert.com/
@@ -72,6 +73,6 @@ Now you can login with as faculty with the credentials of the newly created user
 5. while Searching attendence with Date - add date in [YYYY-MM-DD] format.
 6. While taking attendance - to save attendance or close camera window press 's' on the keyboard.
 
-
+```
 
 
