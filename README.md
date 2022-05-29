@@ -30,7 +30,7 @@ I was already having experience of working with web application with Javascript 
 ## Architechture
 ![alt text](https://github.com/mr-robot-007/attendence_system/blob/master/static/readme_files/architechture.png)
 
-Demo Video -[Open in Youtube](https://youtu.be/Re4r04-tGXM
+Demo Video -[Youtube](https://youtu.be/Re4r04-tGXM
 
 ## Installation
 1. Python should be should installed [Download from here - https://www.python.org/downloads/]
