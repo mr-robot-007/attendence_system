@@ -48,7 +48,8 @@ python manage.py createsuperuser
 After running the above command and creating the credentials, you can use the same credentials for logging in.
 ### To start the application run:
 ```sh
-python manage.py runserver
+for windows : python manage.py runserver
+for ubuntu : python3 manage.py runserver
 ```
 
 **To create a faculty profile**
