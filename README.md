@@ -48,7 +48,8 @@ python manage.py createsuperuser
 After running the above command and creating the credentials, you can use the same credentials for logging in.
 ### To start the application run:
 ```sh
-python manage.py runserver
+for windows : python manage.py runserver
+for ubuntu : python3 manage.py runserver
 ```
 
 **To create a faculty profile**
@@ -69,7 +70,7 @@ Now you can login with as faculty with the credentials of the newly created user
 1. Upload only clear image (with clear background) of the student and image should should not contain more than 1 face.
 2. Image should be in .png format and less than 1MB in size.
 3. To convert images from jpg/jpeg to png you can use - https://cloudconvert.com/
-4. while adding or updating student details , make sure image files are in .png or .jpg format only
+4. while adding or updating student details , make sure image files are in .png  format only
 5. while Searching attendence with Date - add date in [YYYY-MM-DD] format.
 6. While taking attendance - to save attendance or close camera window press 's' on the keyboard.
 
