@@ -43,7 +43,7 @@ Demo Video -[Youtube](https://youtu.be/Re4r04-tGXM)
 
 ![alt text](https://www.tutorialspoint.com/assets/questions/media/49353/install_Python2.jpg)
 
-2. Visual Studio with C++ (**for windows only**)
+2. Visual Studio with C++ (**Required for windows only**)
 
     Download from here - https://visualstudio.microsoft.com/downloads/
 
