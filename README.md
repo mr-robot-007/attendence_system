@@ -94,7 +94,7 @@ Now you can login with as faculty with the credentials of the newly created user
 ### **Note - while using the project**
 
 1. Upload only clear image (with clear background) of the student and image should should not contain more than 1 face.
-2. **Image should be in .png format**(faces will not be recognised for .jpg/.jpeg files) and **less than 1MB** in size.
+2. **Image should be in .png format**(generates error for .jpg/.jpeg files as encodings cannot be generated for .jpg/.jpeg files) and **less than 1MB** in size.
 3. *To convert images from jpg/jpeg to png format you can use - **https://cloudconvert.com/***
 4. while adding or updating student details , make sure **image files are in .png** only
 5. while Searching attendence with Date - enter **date in [YYYY-MM-DD] format**.
