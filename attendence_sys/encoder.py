@@ -23,6 +23,7 @@ def Encoder():
                 img_encoding = face_recognition.face_encodings(img)[0]
                 known_face_names.append(label)
                 known_face_encodings.append(img_encoding)
+    # print(known_face_names)
     return known_face_encodings,known_face_names 
 
 

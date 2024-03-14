@@ -69,6 +69,7 @@ def call_encoder():
     global known_face_encodings,known_face_names
     encodings,name= Encoder()
     known_face_encodings,known_face_names=encodings,name
+    print(known_face_names,'from views')
     return
 
 
