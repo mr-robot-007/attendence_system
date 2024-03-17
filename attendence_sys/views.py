@@ -3,6 +3,7 @@
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.utils import formats
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -22,6 +23,7 @@ from threading import Thread
 
 import xlwt
 import os
+import datetime
 
 """ global variables """
 known_face_encodings =[]
@@ -283,11 +285,16 @@ def export_users_xls(request):
     font_style = xlwt.XFStyle()
 
     global attendences
+    print('hiii')
     rows = attendences.values_list('Student_ID', 'branch', 'year', 'section','date','period','status')
     for row in rows:
         row_num += 1
         for col_num in range(len(row)):
-            ws.write(row_num, col_num, row[col_num], font_style)
+            if col_num == columns.index('date') and isinstance(row[col_num], datetime.date): # Check if the column is 'date' and the value is a date object
+                formatted_date = formats.date_format(row[col_num], "SHORT_DATE_FORMAT")  # Format the date
+                ws.write(row_num, col_num, formatted_date, font_style)
+            else:
+                ws.write(row_num, col_num, row[col_num], font_style)
 
     wb.save(response)
 
